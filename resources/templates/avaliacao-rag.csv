@@ -1,0 +1,6 @@
+case_id,segment,question,expected_source_id,expected_version,must_contain,must_not_claim,expected_behavior,risk,reviewer,status
+RAG-001,comum,,,,,,answer,low,,pending
+RAG-002,fronteira,,,,,,abstain,high,,pending
+RAG-003,fonte_revogada,,,,,,abstain,high,,pending
+RAG-004,acesso_negado,,,,,,deny,high,,pending
+RAG-005,conflito_de_fontes,,,,,,escalate,high,,pending
