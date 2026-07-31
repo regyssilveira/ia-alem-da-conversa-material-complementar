@@ -38,3 +38,9 @@ Os laboratórios usam somente a biblioteca padrão do Python:
 `study-tracks.md` organiza o livro em trilhas de quatro semanas, oito encontros e percursos por papel.
 O diretório `workshop/` contém o pacote de facilitação, caderno, cartões de mudança e rubrica da banca
 para transformar a trilha de oito encontros em oficina corporativa.
+
+## Navegação e versões
+
+- `chapter-practice-map.md` conecta cada capítulo a uma prática, arquivo e evidência;
+- `CHANGELOG.md` registra correções, recursos e mudanças incompatíveis;
+- `COMPATIBILITY.md` relaciona edição, release e versões verificadas do Python.

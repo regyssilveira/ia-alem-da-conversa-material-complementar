@@ -17,6 +17,8 @@ pago.
 - [`resources/study-tracks.md`](resources/study-tracks.md): trilhas de estudo e oficina corporativa;
 - [`resources/workshop`](resources/workshop): pacote completo para facilitar a oficina corporativa;
 - [`resources/community`](resources/community): modelos para compartilhar decisões, falhas e incidentes;
+- [`resources/chapter-practice-map.md`](resources/chapter-practice-map.md): mapa de capítulos,
+  práticas, arquivos e evidências;
 - [`review`](review): protocolo e formulário de leitura-piloto;
 - [`resources/caso-brasileiro-lgpd.md`](resources/caso-brasileiro-lgpd.md): aplicação arquitetural ao
   contexto brasileiro de proteção de dados.
@@ -77,6 +79,12 @@ existe para comparar decisões e aprender com falhas, não para expor organizaç
 
 Consulte [CONTRIBUTING.md](CONTRIBUTING.md) e use os modelos em `resources/community/` para preparar
 uma contribuição reproduzível.
+
+## Versões e compatibilidade
+
+A primeira edição do livro corresponde à release `v1.3.0`. Consulte [CHANGELOG.md](CHANGELOG.md) para
+entender o que mudou e [COMPATIBILITY.md](COMPATIBILITY.md) para versões verificadas do Python e
+comandos de validação.
 
 ## Licenças
 
