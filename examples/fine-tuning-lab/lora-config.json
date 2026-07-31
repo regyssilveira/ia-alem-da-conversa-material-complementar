@@ -1,0 +1,14 @@
+{
+  "method": "LoRA",
+  "note": "Valores ilustrativos; validar para o modelo e a biblioteca escolhidos.",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.05,
+  "target_modules": ["SUBSTITUIR_APOS_INSPECAO_DO_MODELO"],
+  "learning_rate": 0.0002,
+  "epochs": 3,
+  "seed": 42,
+  "max_sequence_length": 512,
+  "checkpoint_each_epoch": true,
+  "early_stopping_metric": "validation_abstention_accuracy"
+}

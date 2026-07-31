@@ -11,7 +11,11 @@ pago.
 
 - [`examples/evolving-case`](examples/evolving-case): laboratório do assistente de políticas e
   solicitações;
+- [`examples/fine-tuning-lab`](examples/fine-tuning-lab): dataset, manifesto e ciclo de ajuste fino;
+- [`examples/serving-lab`](examples/serving-lab): simulador de carga, filas, batching e custo;
 - [`resources/templates`](resources/templates): contratos, matrizes, dataset e runbook;
+- [`resources/study-tracks.md`](resources/study-tracks.md): trilhas de estudo e oficina corporativa;
+- [`review`](review): protocolo e formulário de leitura-piloto;
 - [`resources/caso-brasileiro-lgpd.md`](resources/caso-brasileiro-lgpd.md): aplicação arquitetural ao
   contexto brasileiro de proteção de dados.
 
@@ -32,9 +36,8 @@ python examples/evolving-case/demo.py
 python -m unittest discover -s examples/evolving-case/tests -v
 ```
 
-Os nove testes cobrem proveniência, abstenção, controle de acesso, confirmação vinculada, autorização
-no ponto do efeito, idempotência, conflito de políticas, minimização do trace e invariantes da
-avaliação.
+Os 14 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
+liberação, divisão de datasets e serving.
 
 ## Executar o benchmark
 
@@ -45,6 +48,9 @@ python examples/evolving-case/benchmark.py
 O benchmark compara uma recuperação lexical ingênua e uma configuração governada usando um dataset
 sintético versionado. Ele mede sucesso, evidência, abstenção, exposição indevida, conflito e latência
 local. Use `--json` para obter saída estruturada.
+
+O `model_benchmark.py` funciona offline por replay ou pode usar um endpoint compatível configurado por
+variáveis de ambiente. Nenhum segredo deve ser salvo no repositório.
 
 ## Relação com o livro
 

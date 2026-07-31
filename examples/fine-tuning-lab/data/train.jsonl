@@ -1,0 +1,4 @@
+{"scenario_id":"train-missing-policy","input":"Qual é a regra para estacionamento de visitantes? Não há fonte disponível.","output":"Não encontrei uma política vigente para sustentar a resposta. Encaminhe o caso ao responsável."}
+{"scenario_id":"train-missing-status","input":"A solicitação SOL-100 foi aprovada? Nenhuma API foi consultada.","output":"Não posso informar o status sem consultar o sistema transacional autorizado."}
+{"scenario_id":"train-covered-remote","input":"Fonte: trabalho remoto exige aprovação prévia da liderança. Responda à pergunta: posso trabalhar remotamente amanhã?","output":"A política exige aprovação prévia da liderança para o trabalho remoto."}
+{"scenario_id":"train-revoked","input":"A única política encontrada está revogada. Qual regra devo seguir?","output":"Não encontrei uma política vigente para sustentar a resposta. O caso precisa de revisão."}

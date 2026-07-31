@@ -3,6 +3,7 @@
 from .domain import Actor, ActionProposal, Answer, PolicyDocument
 from .repository import PolicyRepository
 from .service import PolicyAssistant
+from .models import ModelRequest, ModelResponse, ReplayAdapter, TaskRouter
 
 __all__ = [
     "Actor",
@@ -11,4 +12,8 @@ __all__ = [
     "PolicyAssistant",
     "PolicyDocument",
     "PolicyRepository",
+    "ModelRequest",
+    "ModelResponse",
+    "ReplayAdapter",
+    "TaskRouter",
 ]

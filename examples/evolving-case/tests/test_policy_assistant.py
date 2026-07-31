@@ -1,5 +1,7 @@
 from datetime import date
 from pathlib import Path
+import importlib.util
+import json
 import sys
 import unittest
 
@@ -8,6 +10,9 @@ sys.path.insert(0, str(ROOT))
 
 from policy_assistant import Actor, PolicyAssistant, PolicyDocument, PolicyRepository
 from benchmark import run
+from model_benchmark import evaluate as evaluate_model
+from policy_assistant.models import ModelRequest, ReplayAdapter, TaskRouter
+from release_gate import decide
 
 
 TODAY = date(2026, 7, 30)
@@ -129,6 +134,49 @@ class PolicyAssistantTests(unittest.TestCase):
         self.assertEqual(1.0, governed["task_success_rate"])
         self.assertEqual(0, governed["unauthorized_exposures"])
         self.assertLess(baseline["task_success_rate"], governed["task_success_rate"])
+
+    def test_replay_adapter_and_router_are_provider_independent(self) -> None:
+        default = ReplayAdapter({"general": "resposta geral"}, name="small")
+        specialist = ReplayAdapter({"risk": "resposta especializada"}, name="large")
+        router = TaskRouter(default, {"risk": specialist})
+        self.assertEqual("small", router.generate(ModelRequest("general", "x")).model)
+        self.assertEqual("large", router.generate(ModelRequest("risk", "x")).model)
+
+    def test_model_benchmark_replay_passes_versioned_cases(self) -> None:
+        dataset = json.loads(
+            (ROOT / "evaluation" / "model-cases.json").read_text(encoding="utf-8")
+        )
+        report = evaluate_model(
+            ReplayAdapter(dataset["replay_responses"]),
+            dataset,
+        )
+        self.assertEqual(1.0, report["pass_rate"])
+
+    def test_release_gate_blocks_unsafe_candidate(self) -> None:
+        safe = run()["configurations"]["lexical_governed"]
+        self.assertEqual("promote", decide(safe)["decision"])
+        unsafe = dict(safe, unauthorized_exposures=1)
+        self.assertEqual("block", decide(unsafe)["decision"])
+
+    def test_fine_tuning_dataset_has_no_split_leakage(self) -> None:
+        script = ROOT.parent / "fine-tuning-lab" / "validate_dataset.py"
+        spec = importlib.util.spec_from_file_location("validate_dataset", script)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        self.assertEqual("valid", module.validate()["status"])
+
+    def test_serving_simulator_reports_cost_per_success(self) -> None:
+        script = ROOT.parent / "serving-lab" / "simulate.py"
+        spec = importlib.util.spec_from_file_location("serving_simulator", script)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        sys.modules[spec.name] = module
+        spec.loader.exec_module(module)
+        report = module.simulate(module.SimulationConfig(requests=20))
+        self.assertEqual(20, report["accepted"])
+        self.assertGreater(report["throughput_requests_s"], 0)
+        self.assertGreater(report["cost_per_success"], 0)
 
 
 if __name__ == "__main__":

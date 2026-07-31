@@ -49,6 +49,26 @@ resultado a outra ferramenta.
 Os números demonstram um protocolo reproduzível, não a qualidade de um modelo comercial. Os casos são
 sintéticos e a latência não inclui inferência de LLM.
 
+Para avaliar respostas versionadas ou conectar um endpoint real:
+
+```powershell
+python examples/evolving-case/model_benchmark.py
+$env:MODEL_BASE_URL="https://endpoint.example/v1"
+$env:MODEL_NAME="modelo-versionado"
+$env:MODEL_API_KEY="segredo-fora-do-repositorio"
+python examples/evolving-case/model_benchmark.py --adapter openai-compatible
+```
+
+O modo padrão é `replay`: reproduz resultados sem rede, segredo ou cobrança. O modo conectado usa um
+contrato HTTP comum, mas deve ser executado somente com orçamento, autorização e dados adequados.
+
+Para aplicar a porta de liberação a um relatório JSON:
+
+```powershell
+python examples/evolving-case/benchmark.py --json > benchmark-report.json
+python examples/evolving-case/release_gate.py benchmark-report.json
+```
+
 Os testes cobrem:
 
 1. resposta sustentada por política vigente;
@@ -59,7 +79,12 @@ Os testes cobrem:
 6. repetição segura da mesma solicitação;
 7. conflito entre políticas aplicáveis;
 8. minimização do trace;
-9. invariantes do benchmark governado.
+9. invariantes do benchmark governado;
+10. interface e roteamento independentes de fornecedor;
+11. benchmark de replay;
+12. porta de promoção e bloqueio;
+13. divisão do dataset de ajuste fino;
+14. simulador de serving e custo.
 
 ## Percurso sugerido
 
@@ -68,7 +93,9 @@ Os testes cobrem:
 3. Percorra a jornada em `policy_assistant/service.py`.
 4. Execute `demo.py`.
 5. Execute `benchmark.py` e compare as configurações.
-6. Injete uma falha e observe qual teste a detecta.
+6. Execute `model_benchmark.py` no modo replay.
+7. Aplique `release_gate.py`.
+8. Injete uma falha e observe qual teste a detecta.
 
 ## Onde conectar um modelo
 

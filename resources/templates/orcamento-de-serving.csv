@@ -1,0 +1,5 @@
+cenario,requests_s,concorrencia,entrada_tokens,saida_tokens,ttft_p50_ms,ttft_p95_ms,tokens_saida_s,throughput_s,fila_p95_ms,taxa_erro,custo_tentativa,custo_sucesso
+normal,,,,,,,,,,,,
+pico,,,,,,,,,,,,
+dependencia_lenta,,,,,,,,,,,,
+cold_start,,,,,,,,,,,,

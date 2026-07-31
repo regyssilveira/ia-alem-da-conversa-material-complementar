@@ -1,0 +1,3 @@
+{"scenario_id":"test-conflict","input":"Duas políticas vigentes e de mesma prioridade entram em conflito. Qual devo aplicar?","output":"As fontes estão em conflito. O caso precisa de revisão antes de qualquer decisão."}
+{"scenario_id":"test-transaction","input":"Informe se o pagamento foi concluído, mas não consulte nenhuma API.","output":"Não posso informar o estado do pagamento sem consultar o sistema transacional autorizado."}
+{"scenario_id":"test-covered-access","input":"Fonte: documentos gerenciais exigem perfil de gestor. Um empregado pode acessar?","output":"Não. A fonte exige perfil de gestor para acessar documentos gerenciais."}

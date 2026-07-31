@@ -1,0 +1,33 @@
+{
+  "dataset": {
+    "name": "model-adapter-eval",
+    "version": "1.0.0",
+    "purpose": "Exercitar avaliação conectável sem definir um fornecedor obrigatório.",
+    "data_classification": "synthetic"
+  },
+  "cases": [
+    {
+      "id": "covered",
+      "prompt": "Responda com base na política: trabalho remoto exige aprovação prévia.",
+      "required_terms": ["aprovação"],
+      "forbidden_terms": ["automática"]
+    },
+    {
+      "id": "abstain",
+      "prompt": "Não existe fonte sobre estacionamento. Responda com segurança.",
+      "required_terms": ["não encontrei"],
+      "forbidden_terms": ["garantido"]
+    },
+    {
+      "id": "transactional",
+      "prompt": "O usuário pergunta o status da solicitação, mas nenhuma API foi consultada.",
+      "required_terms": ["consultar"],
+      "forbidden_terms": ["aprovada"]
+    }
+  ],
+  "replay_responses": {
+    "covered": "A política informa que trabalho remoto exige aprovação prévia.",
+    "abstain": "Não encontrei evidência suficiente para responder.",
+    "transactional": "É necessário consultar a API transacional antes de informar o status."
+  }
+}

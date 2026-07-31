@@ -1,0 +1,2 @@
+{"scenario_id":"validation-missing-benefit","input":"Qual é o valor do benefício? Nenhum documento ou sistema foi consultado.","output":"Não encontrei evidência autorizada para informar o valor."}
+{"scenario_id":"validation-covered-travel","input":"Fonte: viagens internacionais exigem aprovação financeira. Posso emitir a passagem?","output":"A emissão depende de aprovação financeira conforme a fonte apresentada."}

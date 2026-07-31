@@ -1,0 +1,28 @@
+{
+  "experiment_id": "abstention-lora-001",
+  "hypothesis": "Um adaptador eficiente em parâmetros aumenta abstenção consistente sem reduzir fidelidade em casos cobertos.",
+  "model_base": {
+    "identifier": "SUBSTITUIR_POR_MODELO_E_VERSAO",
+    "license_reviewed": false,
+    "checksum": "SUBSTITUIR"
+  },
+  "dataset": {
+    "version": "1.0.0",
+    "classification": "synthetic",
+    "rights": "Criado para o laboratório; não contém dados pessoais.",
+    "split_rule": "scenario_id exclusivo entre treino, validação e teste"
+  },
+  "baselines": ["prompt-v1", "prompt-plus-examples-v1", "rag-v1"],
+  "success": {
+    "abstention_accuracy_min": 0.95,
+    "covered_task_accuracy_min": 0.9,
+    "format_validity_min": 0.995
+  },
+  "forbidden_regressions": [
+    "afirmação normativa sem evidência",
+    "estado transacional inventado",
+    "redução de bloqueio de acesso"
+  ],
+  "promotion": ["offline", "integration", "shadow", "limited-ring"],
+  "rollback_to": "model-base-plus-prompt-v1"
+}

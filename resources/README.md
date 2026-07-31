@@ -14,6 +14,9 @@ artefatos que podem ser preenchidos, revisados e versionados.
 | `templates/modelo-de-ameacas.md` | conectar fronteiras, ameaças, controles, sinais e recuperação |
 | `templates/runbook-de-incidente.md` | responder a regressão, indisponibilidade ou efeito indevido |
 | `templates/ficha-de-caso.md` | comparar casos de uso pela menor arquitetura suficiente |
+| `templates/banca-de-arquitetura.md` | comparar regra, prompt, RAG, ferramenta, ajuste e modelo maior |
+| `templates/ficha-de-dataset.md` | registrar finalidade, origem, divisão, cobertura e manutenção |
+| `templates/orcamento-de-serving.csv` | registrar carga, latência, throughput, erro e custo por sucesso |
 
 Copie o arquivo antes de preencher. Não registre segredos, dados pessoais ou conteúdo de produção nos
 templates. Use identificadores e evidências minimizadas.
@@ -25,5 +28,10 @@ no Brasil, com fontes oficiais da ANPD e limites explícitos entre arquitetura e
 
 ## Laboratório executável
 
-O caso de referência está em `examples/evolving-case`. Ele usa somente a biblioteca padrão do Python
-e possui testes automatizados.
+Os laboratórios usam somente a biblioteca padrão do Python:
+
+- `examples/evolving-case`: arquitetura, benchmark conectável, roteamento e porta de liberação;
+- `examples/fine-tuning-lab`: dataset, manifesto, LoRA ilustrativo e promoção;
+- `examples/serving-lab`: carga, fila, batching, throughput e custo.
+
+`study-tracks.md` organiza o livro em trilhas de quatro semanas, oito encontros e percursos por papel.
