@@ -36,7 +36,7 @@ python examples/evolving-case/demo.py
 python -m unittest discover -s examples/evolving-case/tests -v
 ```
 
-Os 14 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
+Os 15 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
 liberação, divisão de datasets e serving.
 
 ## Executar o benchmark

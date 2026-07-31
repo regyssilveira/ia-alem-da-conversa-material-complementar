@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT))
 from policy_assistant import Actor, PolicyAssistant, PolicyDocument, PolicyRepository
 from benchmark import run
 from model_benchmark import evaluate as evaluate_model
-from policy_assistant.models import ModelRequest, ReplayAdapter, TaskRouter
+from policy_assistant.models import ModelRequest, ModelResponse, ReplayAdapter, TaskRouter
 from release_gate import decide
 
 
@@ -151,6 +151,41 @@ class PolicyAssistantTests(unittest.TestCase):
             dataset,
         )
         self.assertEqual(1.0, report["pass_rate"])
+        self.assertTrue(report["cost_within_limit"])
+
+    def test_model_benchmark_calculates_cost_and_budget(self) -> None:
+        class MeteredAdapter:
+            name = "metered"
+
+            def generate(self, request):
+                return ModelResponse(
+                    text="ok",
+                    model=self.name,
+                    latency_ms=10,
+                    input_tokens=1_000,
+                    output_tokens=500,
+                )
+
+        dataset = {
+            "dataset": {"name": "metered", "version": "1"},
+            "cases": [
+                {
+                    "id": "one",
+                    "prompt": "x",
+                    "required_terms": ["ok"],
+                    "forbidden_terms": [],
+                }
+            ],
+        }
+        report = evaluate_model(
+            MeteredAdapter(),
+            dataset,
+            max_cost=0.001,
+            input_cost_per_million=1,
+            output_cost_per_million=2,
+        )
+        self.assertEqual(0.002, report["total_cost"])
+        self.assertFalse(report["cost_within_limit"])
 
     def test_release_gate_blocks_unsafe_candidate(self) -> None:
         safe = run()["configurations"]["lexical_governed"]

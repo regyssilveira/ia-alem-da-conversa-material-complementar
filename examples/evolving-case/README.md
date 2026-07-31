@@ -61,6 +61,8 @@ python examples/evolving-case/model_benchmark.py --adapter openai-compatible
 
 O modo padrão é `replay`: reproduz resultados sem rede, segredo ou cobrança. O modo conectado usa um
 contrato HTTP comum, mas deve ser executado somente com orçamento, autorização e dados adequados.
+Informe preços datados com `--input-cost-per-million`, `--output-cost-per-million` e, se desejar,
+`--max-cost`. O relatório calcula custo total, custo por caso aprovado e respeito ao teto.
 
 Para aplicar a porta de liberação a um relatório JSON:
 
@@ -84,7 +86,8 @@ Os testes cobrem:
 11. benchmark de replay;
 12. porta de promoção e bloqueio;
 13. divisão do dataset de ajuste fino;
-14. simulador de serving e custo.
+14. simulador de serving e custo;
+15. cálculo de custo e respeito ao orçamento.
 
 ## Percurso sugerido
 

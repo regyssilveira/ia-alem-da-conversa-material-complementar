@@ -15,7 +15,13 @@ ROOT = Path(__file__).resolve().parent
 DEFAULT_DATASET = ROOT / "evaluation" / "model-cases.json"
 
 
-def evaluate(adapter, dataset: dict, max_cost: float | None = None) -> dict:
+def evaluate(
+    adapter,
+    dataset: dict,
+    max_cost: float | None = None,
+    input_cost_per_million: float = 0,
+    output_cost_per_million: float = 0,
+) -> dict:
     results = []
     total_input = total_output = 0
     for case in dataset["cases"]:
@@ -34,13 +40,26 @@ def evaluate(adapter, dataset: dict, max_cost: float | None = None) -> dict:
             }
         )
 
+    total_cost = (
+        total_input * input_cost_per_million
+        + total_output * output_cost_per_million
+    ) / 1_000_000
+    passed = sum(item["passed"] for item in results)
     return {
         "dataset": dataset["dataset"],
         "adapter": adapter.name,
-        "pass_rate": sum(item["passed"] for item in results) / len(results),
+        "pass_rate": passed / len(results),
         "input_tokens": total_input,
         "output_tokens": total_output,
+        "pricing": {
+            "input_per_million": input_cost_per_million,
+            "output_per_million": output_cost_per_million,
+            "currency": "informada pelo executor",
+        },
+        "total_cost": total_cost,
+        "cost_per_passed_case": total_cost / passed if passed else None,
         "cost_limit_declared": max_cost,
+        "cost_within_limit": max_cost is None or total_cost <= max_cost,
         "results": results,
         "limitations": [
             "Verificação lexical não substitui rubrica humana ou checagem factual.",
@@ -58,6 +77,8 @@ def main() -> None:
         default="replay",
     )
     parser.add_argument("--max-cost", type=float)
+    parser.add_argument("--input-cost-per-million", type=float, default=0)
+    parser.add_argument("--output-cost-per-million", type=float, default=0)
     args = parser.parse_args()
     dataset = json.loads(args.dataset.read_text(encoding="utf-8"))
     adapter = (
@@ -67,7 +88,13 @@ def main() -> None:
     )
     print(
         json.dumps(
-            evaluate(adapter, dataset, args.max_cost),
+            evaluate(
+                adapter,
+                dataset,
+                args.max_cost,
+                args.input_cost_per_million,
+                args.output_cost_per_million,
+            ),
             ensure_ascii=False,
             indent=2,
         )
