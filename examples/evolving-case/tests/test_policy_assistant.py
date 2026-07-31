@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from policy_assistant import Actor, PolicyAssistant, PolicyDocument, PolicyRepository
+from benchmark import run
 
 
 TODAY = date(2026, 7, 30)
@@ -120,6 +121,14 @@ class PolicyAssistantTests(unittest.TestCase):
         trace = next(iter(service.traces.values()))
         with self.assertRaises(ValueError):
             trace.record("unsafe", content="dado sensível")
+
+    def test_governed_benchmark_preserves_invariants(self) -> None:
+        report = run()
+        governed = report["configurations"]["lexical_governed"]
+        baseline = report["configurations"]["lexical_ungoverned"]
+        self.assertEqual(1.0, governed["task_success_rate"])
+        self.assertEqual(0, governed["unauthorized_exposures"])
+        self.assertLess(baseline["task_success_rate"], governed["task_success_rate"])
 
 
 if __name__ == "__main__":

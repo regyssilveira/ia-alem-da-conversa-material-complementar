@@ -35,6 +35,20 @@ python examples/evolving-case/demo.py
 python -m unittest discover -s examples/evolving-case/tests -v
 ```
 
+## Executar o benchmark quantitativo
+
+```powershell
+python examples/evolving-case/benchmark.py
+```
+
+O comando compara uma busca lexical deliberadamente ingênua com a configuração governada. O dataset
+versionado está em `evaluation/cases.json`. O relatório mede sucesso da tarefa, evidência correta,
+abstenção, exposição indevida, detecção de conflito e latência local. Use `--json` para integrar o
+resultado a outra ferramenta.
+
+Os números demonstram um protocolo reproduzível, não a qualidade de um modelo comercial. Os casos são
+sintéticos e a latência não inclui inferência de LLM.
+
 Os testes cobrem:
 
 1. resposta sustentada por política vigente;
@@ -44,7 +58,8 @@ Os testes cobrem:
 5. autorização negada no ponto do efeito;
 6. repetição segura da mesma solicitação;
 7. conflito entre políticas aplicáveis;
-8. minimização do trace.
+8. minimização do trace;
+9. invariantes do benchmark governado.
 
 ## Percurso sugerido
 
@@ -52,7 +67,8 @@ Os testes cobrem:
 2. Veja a recuperação determinística em `policy_assistant/repository.py`.
 3. Percorra a jornada em `policy_assistant/service.py`.
 4. Execute `demo.py`.
-5. Injete uma falha e observe qual teste a detecta.
+5. Execute `benchmark.py` e compare as configurações.
+6. Injete uma falha e observe qual teste a detecta.
 
 ## Onde conectar um modelo
 

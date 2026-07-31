@@ -32,8 +32,19 @@ python examples/evolving-case/demo.py
 python -m unittest discover -s examples/evolving-case/tests -v
 ```
 
-Os oito testes cobrem proveniência, abstenção, controle de acesso, confirmação vinculada, autorização
-no ponto do efeito, idempotência, conflito de políticas e minimização do trace.
+Os nove testes cobrem proveniência, abstenção, controle de acesso, confirmação vinculada, autorização
+no ponto do efeito, idempotência, conflito de políticas, minimização do trace e invariantes da
+avaliação.
+
+## Executar o benchmark
+
+```powershell
+python examples/evolving-case/benchmark.py
+```
+
+O benchmark compara uma recuperação lexical ingênua e uma configuração governada usando um dataset
+sintético versionado. Ele mede sucesso, evidência, abstenção, exposição indevida, conflito e latência
+local. Use `--json` para obter saída estruturada.
 
 ## Relação com o livro
 

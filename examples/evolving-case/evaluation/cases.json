@@ -1,0 +1,62 @@
+{
+  "dataset": {
+    "name": "policy-assistant-eval",
+    "version": "1.0.0",
+    "purpose": "Comparar recuperação lexical simples e recuperação governada.",
+    "cut": "Casos didáticos sintéticos; não representam distribuição de produção.",
+    "as_of": "2026-07-30"
+  },
+  "cases": [
+    {
+      "id": "covered-employee",
+      "question": "trabalho remoto aprovação",
+      "actor_level": "employee",
+      "expected_status": "answered",
+      "expected_policy": "POL-REMOTE-2"
+    },
+    {
+      "id": "covered-public",
+      "question": "canal público suporte",
+      "actor_level": "public",
+      "expected_status": "answered",
+      "expected_policy": "POL-SUPPORT-1"
+    },
+    {
+      "id": "missing-evidence",
+      "question": "reembolso de estacionamento",
+      "actor_level": "employee",
+      "expected_status": "abstained",
+      "expected_reason": "insufficient_evidence"
+    },
+    {
+      "id": "revoked-policy",
+      "question": "adiantamento internacional viagens",
+      "actor_level": "employee",
+      "expected_status": "abstained",
+      "expected_reason": "insufficient_evidence"
+    },
+    {
+      "id": "restricted-policy",
+      "question": "faixa salarial executiva",
+      "actor_level": "employee",
+      "expected_status": "abstained",
+      "expected_reason": "insufficient_evidence",
+      "forbidden_policy": "POL-SALARY-M"
+    },
+    {
+      "id": "wrong-jurisdiction",
+      "question": "benefício alimentação portugal",
+      "actor_level": "employee",
+      "expected_status": "abstained",
+      "expected_reason": "insufficient_evidence",
+      "forbidden_policy": "POL-PT-1"
+    },
+    {
+      "id": "conflicting-policies",
+      "question": "equipamento pessoal trabalho",
+      "actor_level": "employee",
+      "expected_status": "abstained",
+      "expected_reason": "conflicting_evidence"
+    }
+  ]
+}
