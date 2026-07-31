@@ -15,6 +15,8 @@ pago.
 - [`examples/serving-lab`](examples/serving-lab): simulador de carga, filas, batching e custo;
 - [`resources/templates`](resources/templates): contratos, matrizes, dataset e runbook;
 - [`resources/study-tracks.md`](resources/study-tracks.md): trilhas de estudo e oficina corporativa;
+- [`resources/workshop`](resources/workshop): pacote completo para facilitar a oficina corporativa;
+- [`resources/community`](resources/community): modelos para compartilhar decisões, falhas e incidentes;
 - [`review`](review): protocolo e formulário de leitura-piloto;
 - [`resources/caso-brasileiro-lgpd.md`](resources/caso-brasileiro-lgpd.md): aplicação arquitetural ao
   contexto brasileiro de proteção de dados.
@@ -38,6 +40,10 @@ python -m unittest discover -s examples/evolving-case/tests -v
 
 Os 15 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
 liberação, divisão de datasets e serving.
+
+Os testes também são executados automaticamente nas versões de Python declaradas no workflow do
+repositório. Uma release identifica um estado reproduzível dos códigos e laboratórios; o texto do
+livro mantém seu próprio ciclo editorial.
 
 ## Executar o benchmark
 
@@ -64,6 +70,13 @@ testes ou avaliação jurídica.
 Use as [issues do repositório](https://github.com/regyssilveira/ia-alem-da-conversa-material-complementar/issues)
 para relatar erros, sugerir melhorias ou propor novos cenários. Alterações relevantes serão registradas
 nas versões publicadas.
+
+Há formulários diferentes para caso de decisão, aprendizado de incidente e correção técnica. Antes de
+publicar, remova dados pessoais, segredos, nomes de clientes e detalhes que ampliem risco. A comunidade
+existe para comparar decisões e aprender com falhas, não para expor organizações ou pessoas.
+
+Consulte [CONTRIBUTING.md](CONTRIBUTING.md) e use os modelos em `resources/community/` para preparar
+uma contribuição reproduzível.
 
 ## Licenças
 

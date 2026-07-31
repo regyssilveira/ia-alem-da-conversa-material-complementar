@@ -1,0 +1,23 @@
+name: Correção técnica
+description: Relate erro reproduzível em código, teste ou documentação.
+title: "[correção] "
+labels: ["correcao"]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Arquivo ou laboratório
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Como reproduzir
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado e observado
+    validations:
+      required: true

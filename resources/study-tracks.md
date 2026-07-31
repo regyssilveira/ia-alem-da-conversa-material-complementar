@@ -11,16 +11,20 @@
 
 ## Oficina corporativa de oito encontros
 
-1. problema, baseline e promessa;
-2. prompts, contexto e avaliação;
-3. ferramentas, estado e RAG;
-4. autonomia e autoridade;
-5. APIs, MCP e workflows;
-6. modelos, ajuste e topologia;
-7. serving, segurança e observabilidade;
-8. banca da menor arquitetura suficiente.
+| Encontro | Foco | Entrega |
+|---|---|---|
+| 1 | problema, baseline e promessa | roteiro da menor arquitetura iniciado |
+| 2 | prompts, contexto e avaliação | contrato de tarefa e suíte inicial |
+| 3 | ferramentas, estado e RAG | mapa de fontes, memória e capacidades |
+| 4 | autonomia e autoridade | comparação sem IA, workflow e agente |
+| 5 | APIs, MCP e workflows | contrato da integração e estados |
+| 6 | modelos, ajuste e topologia | memo de seleção e experimento |
+| 7 | serving, segurança e observabilidade | orçamento, ameaça e runbook |
+| 8 | banca da menor arquitetura suficiente | decisão defendida e plano de piloto |
 
 Cada encontro termina com um artefato preenchido. Não use dados sensíveis nos exercícios.
+O pacote em `resources/workshop/` inclui guia de facilitação, caderno do participante, cartões de
+mudança e rubrica. A oficina pode usar um problema da organização ou o caso fictício fornecido.
 
 ## Trilhas por papel
 

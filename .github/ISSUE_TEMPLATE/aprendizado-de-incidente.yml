@@ -1,0 +1,41 @@
+name: Aprendizado de falha ou incidente
+description: Registre um aprendizado sanitizado, verificável e sem culpa.
+title: "[aprendizado] "
+labels: ["aprendizado-de-incidente"]
+body:
+  - type: markdown
+    attributes:
+      value: "Não publique vulnerabilidades exploráveis, dados pessoais, segredos ou identificação de pessoas."
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto e detecção
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Condições contribuidoras
+      description: Descreva sistema e processo; não atribua culpa individual.
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Contenção e recuperação
+    validations:
+      required: true
+  - type: textarea
+    id: learning
+    attributes:
+      label: Mudança e teste
+      description: Qual controle mudou e como a mudança será verificada?
+    validations:
+      required: true
+  - type: checkboxes
+    id: sanitized
+    attributes:
+      label: Confirmação
+      options:
+        - label: O relato foi anonimizado e não amplia risco operacional.
+          required: true

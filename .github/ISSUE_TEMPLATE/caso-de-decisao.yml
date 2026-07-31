@@ -1,0 +1,42 @@
+name: Caso de decisão
+description: Compartilhe uma decisão arquitetural sanitizada e reproduzível.
+title: "[decisão] "
+labels: ["caso-de-decisao"]
+body:
+  - type: markdown
+    attributes:
+      value: "Não inclua dados pessoais, segredos, nomes de clientes ou informações confidenciais."
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Resultado e baseline
+      description: O que precisava mudar e como o processo funcionava antes?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas comparadas
+      description: Compare sem IA, IA em workflow e agente limitado quando aplicável.
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decisão e evidência
+      description: O que foi escolhido e que evidência sustentou a decisão?
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limites e condição de retirada
+    validations:
+      required: true
+  - type: checkboxes
+    id: sanitized
+    attributes:
+      label: Confirmação
+      options:
+        - label: Removi dados pessoais, segredos e informações confidenciais.
+          required: true
