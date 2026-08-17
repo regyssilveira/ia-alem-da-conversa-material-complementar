@@ -33,5 +33,5 @@ Use os modelos em `resources/community/`. Um incidente publicado deve ser um est
 linha do tempo mínima, condição contribuidora, detecção, contenção, evidência e mudança verificável.
 Não atribua culpa individual.
 
-Ao contribuir, você concorda que código seja distribuído sob MIT e textos/templates sob CC BY 4.0,
+Ao contribuir, você concorda que código seja distribuído sob Apache License 2.0 e textos/templates sob CC BY 4.0,
 conforme `LICENSE.md`.

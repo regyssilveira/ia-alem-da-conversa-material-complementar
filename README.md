@@ -88,7 +88,7 @@ comandos de validação.
 
 ## Licenças
 
-O código-fonte em `examples/` é distribuído sob a licença MIT. Os textos, templates e demais conteúdos
+O código-fonte em `examples/` é distribuído sob a Apache License 2.0. Os textos, templates e demais conteúdos
 em `resources/` são distribuídos sob a licença Creative Commons Atribuição 4.0 Internacional
 (CC BY 4.0). Consulte [LICENSE.md](LICENSE.md).
 
