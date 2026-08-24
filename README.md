@@ -1,7 +1,7 @@
 # IA Além da Conversa — Material Complementar
 
-Laboratório executável, testes e templates do livro **IA Além da Conversa: Como ir além do ChatGPT e
-construir soluções com LLMs, agentes, RAG, MCP e automação**, de Régys Borges da Silveira.
+Laboratórios executáveis, testes e templates do livro **IA Além da Conversa: Como transformar modelos
+de linguagem em soluções inteligentes, seguras e operáveis**, de Régys Borges da Silveira.
 
 O material transforma princípios do livro em artefatos que podem ser executados, preenchidos,
 revisados e adaptados. Ele é independente de fornecedor e não exige chave de API, conta ou serviço
@@ -13,6 +13,8 @@ pago.
   solicitações;
 - [`examples/fine-tuning-lab`](examples/fine-tuning-lab): dataset, manifesto e ciclo de ajuste fino;
 - [`examples/serving-lab`](examples/serving-lab): simulador de carga, filas, batching e custo;
+- [`examples/retrieval-lab`](examples/retrieval-lab): recuperação lexical, conceitual e híbrida com
+  vigência, autoridade e abstenção;
 - [`resources/templates`](resources/templates): contratos, matrizes, dataset e runbook;
 - [`resources/study-tracks.md`](resources/study-tracks.md): trilhas de estudo e oficina corporativa;
 - [`resources/workshop`](resources/workshop): pacote completo para facilitar a oficina corporativa;
@@ -38,10 +40,11 @@ python examples/evolving-case/demo.py
 
 ```powershell
 python -m unittest discover -s examples/evolving-case/tests -v
+python -m unittest discover -s examples/retrieval-lab/tests -v
 ```
 
-Os 15 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
-liberação, divisão de datasets e serving.
+Os 20 testes cobrem arquitetura, autorização, idempotência, benchmark, replay, roteamento, porta de
+liberação, divisão de datasets, serving e recuperação governada.
 
 Os testes também são executados automaticamente nas versões de Python declaradas no workflow do
 repositório. Uma release identifica um estado reproduzível dos códigos e laboratórios; o texto do
@@ -82,7 +85,7 @@ uma contribuição reproduzível.
 
 ## Versões e compatibilidade
 
-A primeira edição do livro corresponde à release `v1.3.0`. Consulte [CHANGELOG.md](CHANGELOG.md) para
+A primeira edição do livro corresponde à release `v1.4.0`. Consulte [CHANGELOG.md](CHANGELOG.md) para
 entender o que mudou e [COMPATIBILITY.md](COMPATIBILITY.md) para versões verificadas do Python e
 comandos de validação.
 

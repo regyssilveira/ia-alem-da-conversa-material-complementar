@@ -24,3 +24,7 @@ jobs:
         run: python examples/fine-tuning-lab/validate_dataset.py
       - name: Executar simulação de serving
         run: python examples/serving-lab/simulate.py --requests 20
+      - name: Testar recuperação governada
+        run: python -m unittest discover -s examples/retrieval-lab/tests -v
+      - name: Executar comparação de recuperação
+        run: python examples/retrieval-lab/retrieve.py

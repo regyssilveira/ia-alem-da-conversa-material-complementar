@@ -1,0 +1,7 @@
+[
+  {"case_id":"prazo-sinonimo","query":"Até quando posso pedir ressarcimento depois de voltar da viagem?","unit":"brasil","as_of":"2026-07-01","expected":["POL-REEMBOLSO:v7:4.2"],"must_abstain":false},
+  {"case_id":"hospedagem-exata","query":"Quais dados a nota fiscal de hospedagem deve ter?","unit":"brasil","as_of":"2026-07-01","expected":["POL-HOSPEDAGEM:v3:3.1"],"must_abstain":false},
+  {"case_id":"versao-revogada","query":"O prazo de reembolso é 45 dias?","unit":"brasil","as_of":"2026-07-01","expected":["POL-REEMBOLSO:v7:4.2"],"must_abstain":false},
+  {"case_id":"excecao-local","query":"Qual o prazo para prestação de contas de viagem internacional?","unit":"brasil-sul","as_of":"2026-07-01","expected":["POL-EXCECAO:v2:2.1","POL-REEMBOLSO:v7:4.2"],"must_abstain":false},
+  {"case_id":"fora-da-colecao","query":"Qual é a política de férias coletivas?","unit":"brasil","as_of":"2026-07-01","expected":[],"must_abstain":true}
+]

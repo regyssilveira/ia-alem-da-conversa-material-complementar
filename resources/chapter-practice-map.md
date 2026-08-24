@@ -25,7 +25,7 @@ um artefato livre; os demais caminhos apontam para arquivos preenchíveis ou lab
 | 18 | retirar um agente | `templates/memo-de-decisao.md` | contribuição marginal por papel |
 | 19 | quebrar o consumidor | no capítulo | contrato e fixtures de compatibilidade |
 | 20 | testar dois hosts MCP | `templates/modelo-de-ameacas.md` | fronteiras de host e servidor |
-| 21 | percorrer pergunta e evidência | `templates/avaliacao-rag.csv` | métricas de ingestão, busca e resposta |
+| 21 | percorrer pergunta e evidência | `templates/avaliacao-rag.csv`, `../examples/retrieval-lab` | métricas de ingestão, busca, resposta e abstenção |
 | 22 | executar processo fora de ordem | no capítulo | estados, idempotência e compensação |
 | 23 | realizar banca de promoção | `templates/banca-de-arquitetura.md` | requisitos e portas de maturidade |
 | 24 | selecionar e adaptar modelo | `examples/fine-tuning-lab` | manifesto, splits e promoção |

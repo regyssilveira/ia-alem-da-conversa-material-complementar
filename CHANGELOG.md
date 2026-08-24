@@ -3,6 +3,16 @@
 Este histórico acompanha releases dos códigos, laboratórios e recursos. O manuscrito possui ciclo
 editorial próprio.
 
+## v1.4.0 — Recuperação governada
+
+- laboratório determinístico de recuperação lexical, conceitual e híbrida;
+- filtros de unidade e vigência aplicados antes do ranking;
+- métricas de `recall@3`, MRR e acurácia de abstenção;
+- cinco testes de regressão para sinônimos, versão revogada, exceção local e ausência de cobertura;
+- compatibilidade da primeira edição atualizada para quatro laboratórios e vinte testes.
+
+Capítulos relacionados: 13, 21, 27 e 28.
+
 ## v1.3.0 — Método, oficina e comunidade
 
 - roteiro da menor arquitetura suficiente;

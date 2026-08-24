@@ -2,11 +2,12 @@
 
 | Edição do livro | Release complementar | Python verificado | Estado |
 |---|---|---|---|
-| 1ª edição, manuscrito de 31 jul. 2026 | `v1.3.0` | 3.11, 3.12 e 3.13 | recomendado |
+| 1ª edição, manuscrito fechado em 24 ago. 2026 | `v1.4.0` | 3.11, 3.12 e 3.13 | recomendado |
+| 1ª edição, método, oficina e comunidade | `v1.3.0` | 3.11, 3.12 e 3.13 | preservado |
 | 1ª edição, estado anterior à oficina | `v1.2.1` | 3.11 | preservado |
 | 1ª edição, laboratórios iniciais | `v1.0.0` a `v1.2.0` | 3.11 | histórico |
 
-## Contrato da v1.3.0
+## Contrato da v1.4.0
 
 Comandos de verificação:
 
@@ -14,6 +15,8 @@ Comandos de verificação:
 python -m unittest discover -s examples/evolving-case/tests -v
 python examples/fine-tuning-lab/validate_dataset.py
 python examples/serving-lab/simulate.py --requests 20
+python -m unittest discover -s examples/retrieval-lab/tests -v
+python examples/retrieval-lab/retrieve.py
 ```
 
 Os laboratórios básicos não exigem dependências externas, chave de API ou serviço pago. O modo

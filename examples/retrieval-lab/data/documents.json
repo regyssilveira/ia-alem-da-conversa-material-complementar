@@ -1,0 +1,8 @@
+[
+  {"chunk_id":"POL-REEMBOLSO:v7:4.2","document_id":"POL-REEMBOLSO","version":7,"unit":"brasil","valid_from":"2026-01-01","valid_until":null,"authority":80,"text":"Despesas de viagem devem ser enviadas em até 30 dias após o retorno, com comprovante legível."},
+  {"chunk_id":"POL-REEMBOLSO:v6:4.2","document_id":"POL-REEMBOLSO","version":6,"unit":"brasil","valid_from":"2025-01-01","valid_until":"2025-12-31","authority":80,"text":"O colaborador possui 45 dias para apresentar despesas de viagem."},
+  {"chunk_id":"POL-EXCECAO:v2:2.1","document_id":"POL-EXCECAO","version":2,"unit":"brasil-sul","valid_from":"2026-02-01","valid_until":null,"authority":90,"text":"Na unidade Brasil Sul, viagem internacional pode ser enviada em até 60 dias após o retorno."},
+  {"chunk_id":"POL-HOSPEDAGEM:v3:3.1","document_id":"POL-HOSPEDAGEM","version":3,"unit":"brasil","valid_from":"2026-01-01","valid_until":null,"authority":70,"text":"Hospedagem exige nota fiscal com nome do estabelecimento, período e valor total."},
+  {"chunk_id":"GUIA-DESPESA:v4:5.3","document_id":"GUIA-DESPESA","version":4,"unit":"brasil","valid_from":"2026-01-01","valid_until":null,"authority":40,"text":"Para pedir ressarcimento, anexe o recibo e informe a data de retorno da viagem."},
+  {"chunk_id":"POL-PAGAMENTO:v5:7.1","document_id":"POL-PAGAMENTO","version":5,"unit":"brasil","valid_from":"2026-01-01","valid_until":null,"authority":80,"text":"O pagamento aprovado é creditado na folha seguinte ao encerramento da análise."}
+]
